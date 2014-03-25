@@ -1,11 +1,27 @@
-#!/usr/bin/php
-<?
+<?php
 
-$GLOBALS['THRIFT_ROOT'] = 'lib/php/src';
+$GLOBALS['THRIFT_ROOT'] = './Thrift';
 
-use Thrift\Protocol\TBinaryProtocol;
+ // Load up all the thrift stuff
+require_once $GLOBALS['THRIFT_ROOT'].'/Transport/TTransport.php';  
+require_once $GLOBALS['THRIFT_ROOT'].'/Transport/TSocket.php';  
+require_once $GLOBALS['THRIFT_ROOT'].'/Transport/TPhpStream.php';  
+require_once $GLOBALS['THRIFT_ROOT'].'/Protocol/TProtocol.php';  
+require_once $GLOBALS['THRIFT_ROOT'].'/Protocol/TBinaryProtocol.php';  
+require_once $GLOBALS['THRIFT_ROOT'].'/Transport/TBufferedTransport.php';  
+require_once $GLOBALS['THRIFT_ROOT'].'/Type/TMessageType.php';  
+require_once $GLOBALS['THRIFT_ROOT'].'/Factory/TStringFuncFactory.php';  
+require_once $GLOBALS['THRIFT_ROOT'].'/StringFunc/TStringFunc.php';  
+require_once $GLOBALS['THRIFT_ROOT'].'/StringFunc/Core.php';  
+require_once $GLOBALS['THRIFT_ROOT'].'/Type/TType.php';  
+
+
+use Thrift\Protocol\TBinaryProtocol;  
+use Thrift\Transport\TSocket;  
+use Thrift\Transport\TSocketPool;  
+use Thrift\Transport\TFramedTransport;  
+use Thrift\Transport\TBufferedTransport; 
 use Thrift\Transport\TPhpStream;
-use Thrift\Transport\TBufferedTransport;
 
 $GEN_DIR = 'gen-php';
 
