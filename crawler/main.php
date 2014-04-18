@@ -4,6 +4,7 @@
     require('wiki.php');
     require('vcs.php');
 
+    $display_errors = 0;
     if($argc > 4 || $argc < 3) {
         echo "usage php main.php <project owner> <project name> [options]\n";
         exit(0);
