@@ -33,7 +33,7 @@
             $totalComments += getCommentCountInSingleIssuePage($html);
             getAuthorCountInSingleIssuePage($html, $authors);
         }
-        echo $totalComments . "/" . sizeof($authors);
+        return $totalComments . "/" . sizeof($authors);
     }
 
     function getCommentCountInSingleIssuePage($html){
@@ -64,7 +64,7 @@
 	$open = getOpenIssue($issueMainPage);
         $close = getCloseIssue($issueMainPage);
         $total = $open + $close;
-        echo "Issue(open/close/total) :$open/$close/$total \n";
-        echo "Total article/participants" . traverseIssues($url, $total) . "\n";
+        echo "Issue(open/close/total) : $open/$close/$total \n";
+        echo "Total article/participants : " . traverseIssues($url, $total) . "\n";
     }
 ?>

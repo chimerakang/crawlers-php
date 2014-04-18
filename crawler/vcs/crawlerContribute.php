@@ -67,11 +67,6 @@ for($i = 1; $i < count($tmp); $i++)
     }
 }
 
-echo "authors: ".$authors[count($authors) - 2]."\r\n";
-echo "NumOfFileChg: ".$aryNumOfFileChg[count($aryNumOfFileChg) - 1]."\r\n";
-echo "Actions: ".$aryActions[count($aryActions) -2 ] ."\r\n";
-var_dump($aryActions[count($aryActions) -2 ]);
-
 echo "Authors\tChanged files\tC/M/D\n";
 for($i = 0; $i < count($authors); ++$i) {
     echo $authors[$i] . "\t" . $aryNumOfFileChg[$i] . "\t";
