@@ -28,7 +28,7 @@
     function traverseIssues($baseUrl, $issueCount){
         $totalComments = 0;
         $authors = array();
-        for($i = 1; $i < $issueCount; ++$i) {
+        for($i = 1; $i <= $issueCount; ++$i) {
             $html = file_get_contents($baseUrl . "/" . $i);
             $totalComments += getCommentCountInSingleIssuePage($html);
             getAuthorCountInSingleIssuePage($html, $authors);
@@ -61,7 +61,7 @@
     function getIssue($name, $project){
         $url = "https://github.com/$name/$project/issues";
         $issueMainPage = file_get_contents($url);
-	$open = getOpenIssue($issueMainPage);
+        $open = getOpenIssue($issueMainPage);
         $close = getCloseIssue($issueMainPage);
         $total = $open + $close;
         echo "Issue(open/close/total) : $open/$close/$total \n";
