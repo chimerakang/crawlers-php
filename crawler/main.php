@@ -1,5 +1,7 @@
 <?php
     require('issue.php');
+    require('ranking.php');
+    require('wiki.php');
 /*
     $issueMainPage = file_get_contents('https://github.com/kripken/emscripten/issues'); 
     echo getCloseIssue($issueMainPage) . "\n";
@@ -17,5 +19,8 @@
 
     echo sizeof($authors) . "\n";
 */
-    traverseIssues('https://github.com/kripken/emscripten/issues', 5);
+//    traverseIssues('https://github.com/kripken/emscripten/issues', 5);
+
+//    getRanking('kripken', 'emscripten');
+    getWiki('kripken', 'emscripten');
 ?>
