@@ -33,12 +33,11 @@
             $totalComments += getCommentCountInSingleIssuePage($html);
             getAuthorCountInSingleIssuePage($html, $authors);
         }
-        echo $totalComments . "\n";
-        echo sizeof($authors) . "\n";
+        echo $totalComments . "/" . sizeof($authors);
     }
 
     function getCommentCountInSingleIssuePage($html){
-        return preg_match_all('/class="timeline-comment-header-text"/', $html);
+        return preg_match_all('/class="timeline-comment-header-text"/', $html, $unsue);
     }
 
     function getAuthorCountInSingleIssuePage($html, &$authorArr = null){
@@ -59,4 +58,13 @@
         return sizeof($localAuthorArr);
     }
 
+    function getIssue($name, $project){
+        $url = "https://github.com/$name/$project/issues";
+        $issueMainPage = file_get_contents($url);
+	$open = getOpenIssue($issueMainPage);
+        $close = getCloseIssue($issueMainPage);
+        $total = $open + $close;
+        echo "Issue(open/close/total) :$open/$close/$total \n";
+        echo "Total article/participants" . traverseIssues($url, $total) . "\n";
+    }
 ?>
